@@ -15,7 +15,7 @@ export class SignComponent implements OnInit {
     password: ['', [Validators.required]]
   });
 
-  public msgError!: string;
+  msgError!: string;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -25,15 +25,17 @@ export class SignComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public submitForm(){
-    if(this.formAuth.valid){
-        this.authService.sign({
+  public submitForm() {
+    if (this.formAuth.valid) {
+      this.authService
+        .sign({
           email: this.formAuth.value.email,
-          password: this.formAuth.value.password
-        }).subscribe({
+          password: this.formAuth.value.password,
+        })
+        .subscribe({
           next: (res) => res,
           error: (e) => (this.msgError = e),
-        })
+        });
     }
   }
 
