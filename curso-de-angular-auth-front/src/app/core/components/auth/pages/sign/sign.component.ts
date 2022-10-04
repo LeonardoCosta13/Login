@@ -19,7 +19,7 @@ export class SignComponent implements OnInit {
 
   public submitForm(){
     if(this.formAuth.valid){
-      console.log(this.formAuth)
+      console.log(this.formAuth);
     }
   }
 
